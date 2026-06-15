@@ -32,7 +32,9 @@ public class Main {
         int choice;
 
         do {
-
+            System.out.println("==================");
+            System.out.println("     DineFlow");
+            System.out.println("==================");
             System.out.println("1. Place Order");
             System.out.println("2. Search Order");
             System.out.println("3. View All Orders");

@@ -32,10 +32,10 @@ public class MenuData {
         pizza.addFlavour("Arabian Ranch");
         pizza.addFlavour("Chicken Extreme");
 
-        pizza.addSize("Small", 799);
-        pizza.addSize("Medium", 1299);
-        pizza.addSize("Large", 1899);
-        pizza.addSize("Family", 2499);
+        pizza.addSize("Small", 1000);
+        pizza.addSize("Medium", 1600);
+        pizza.addSize("Large", 2900);
+        pizza.addSize("Family", 4000);
 
         fastFood.addChild(new TreeNode(pizza));
 
@@ -73,7 +73,7 @@ public class MenuData {
         shawarma.addFlavour("Special Shawarma");
 
         shawarma.addSize("Regular", 250);
-        shawarma.addSize("Large", 400);
+        shawarma.addSize("Large", 300);
 
         fastFood.addChild(new TreeNode(shawarma));
 
@@ -129,7 +129,7 @@ public class MenuData {
             Menu_Item d = new Menu_Item(drink);
 
             d.addSize("Regular", 120);
-            d.addSize("Large", 180);
+            d.addSize("Large", 220);
 
             drinks.addChild(new TreeNode(d));
         }
@@ -150,7 +150,7 @@ public class MenuData {
 
             Menu_Item d = new Menu_Item(dessert);
 
-            d.addSize("Standard", 300);
+            d.addSize("Standard", 1000);
 
             desserts.addChild(new TreeNode(d));
         }
