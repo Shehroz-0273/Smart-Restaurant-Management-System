@@ -5,6 +5,9 @@ import Menu.MenuTree;
 import Order.order;
 import Order.OrderManager;
 
+import Kitchen.KitchenManager;
+import Kitchen.KitchenOrder;
+
 import java.util.Scanner;
 
 public class Main {
@@ -20,6 +23,9 @@ public class Main {
         OrderManager orderManager =
                 new OrderManager();
 
+        KitchenManager kitchenManager =
+                new KitchenManager();
+
         Scanner input =
                 new Scanner(System.in);
 
@@ -27,14 +33,13 @@ public class Main {
 
         do {
 
-            System.out.println("\n========================");
-            System.out.println("       DINEFLOW");
-            System.out.println("========================");
             System.out.println("1. Place Order");
             System.out.println("2. Search Order");
             System.out.println("3. View All Orders");
             System.out.println("4. Cancel Order");
-            System.out.println("5. Exit");
+            System.out.println("5. Process Next Kitchen Order");
+            System.out.println("6. View Pending Kitchen Orders");
+            System.out.println("7. Exit");
 
             System.out.print("\nEnter Choice: ");
             choice = input.nextInt();
@@ -63,6 +68,39 @@ public class Main {
                             );
 
                     orderManager.addOrder(finalOrder);
+
+                    System.out.println(
+                            "\nSelect Priority:"
+                    );
+
+                    System.out.println(
+                            "1. VIP"
+                    );
+
+                    System.out.println(
+                            "2. Express"
+                    );
+
+                    System.out.println(
+                            "3. Normal"
+                    );
+
+                    System.out.print(
+                            "Enter Priority: "
+                    );
+
+                    int priority =
+                            input.nextInt();
+
+                    KitchenOrder kitchenOrder =
+                            new KitchenOrder(
+                                    finalOrder,
+                                    priority
+                            );
+
+                    kitchenManager.addToKitchen(
+                            kitchenOrder
+                    );
 
                     System.out.println(
                             "\n===== ORDER SUMMARY ====="
@@ -122,6 +160,18 @@ public class Main {
 
                 case 5:
 
+                    kitchenManager.processNextOrder();
+
+                    break;
+
+                case 6:
+
+                    kitchenManager.displayPendingOrders();
+
+                    break;
+
+                case 7:
+
                     System.out.println(
                             "\nThank You For Using DineFlow!"
                     );
@@ -135,7 +185,7 @@ public class Main {
                     );
             }
 
-        } while(choice != 5);
+        } while(choice != 7);
 
         input.close();
     }
