@@ -1,5 +1,5 @@
 package Menu;
-
+import Order.order;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
@@ -15,17 +15,17 @@ public class MenuService {
         this.input = new Scanner(System.in);
     }
 
-    public void placeOrder() {
+    public order placeOrder() {
 
         TreeNode category = selectCategory();
 
         if(category == null)
-            return;
+            return null;
 
         TreeNode itemNode = selectItem(category);
 
         if(itemNode == null)
-            return;
+            return null;
 
         Menu_Item item = itemNode.getMenuItem();
 
@@ -53,6 +53,14 @@ public class MenuService {
                 price);
 
         System.out.println("========================");
+
+        return new order(
+                0,
+                item.getItemName(),
+                flavour,
+                size,
+                price
+        );
     }
 
     private TreeNode selectCategory() {
